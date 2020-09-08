@@ -251,3 +251,6 @@ pay_list['max_i_pay']=pay_list['max']+pay_list['max']*max_i
 pay_list['down']= np.min([pay_list['min_i_pay'],pay_list['mid_i_pay']],axis=0)
 pay_list_result = pay_list.loc[(pay_list['min_i_pay']>=100)&(pay_list['mid_i_pay']>=100),].sort_values(['down'],ascending=False).head(1)
 print(pay_list_result)
+
+
+GetArbitrage(0.118,4.75,22,10)

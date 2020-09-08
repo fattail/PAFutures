@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os as os
 
-def GetArbitrage(v_win,v_tie,v_los,bet_amt,keep_side):
+def GetArbitrageKeep(v_win,v_tie,v_los,bet_amt,keep_side):
 
     AllocateList = pd.read_csv(r'./data/cmb_list.csv',index_col=None)
 
@@ -44,6 +44,29 @@ def GetArbitrage(v_win,v_tie,v_los,bet_amt,keep_side):
         return OPTAllocateList.loc[OPTAllocateList['最小负'] == OPTAllocateList['最小负'].min(),]
 
 # 波黑-波兰
-GetArbitrage(1.55,2.125,1.875,100,'留胜') # 2.125
-GetArbitrage(1.55,2.125,1.875,100,'留平') # 3.0
-GetArbitrage(1.55,2.125,1.875,100,'留负') # 2.7
+GetArbitrage(1.6,2.125,1.8,100,'留胜') # 2.125
+GetArbitrage(1.6,2.125,1.8,100,'留平') # 3.0
+GetArbitrage(1.6,2.125,1.8,100,'留负') # 2.7
+
+# 艾美尼亚
+GetArbitrage(0.8,2.3,4,100,'留平')
+GetArbitrageKeep(0.8,2.3,4,100,'留负')
+
+56*(1+.8)-(56+31)
+
+31*(1+2.3)-(56+31)
+
+# --鹿儿岛
+GetArbitrageKeep(1.15,2.25,1.875,10,'留平')
+
+4.7*(1+1.15)-8.3-1
+10.11/8.3
+3.6*(1+1.875)-8.3-1
+
+1*5.25-9.3
+
+(4.7+3.6)/7
+
+1.7*(1+7)-10
+
+x*(1+7)=(4.7+3.6)+x
