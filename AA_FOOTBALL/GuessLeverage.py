@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os as os
 
-def GetArbitrage(v_win,v_tie,v_los,bet_amt,keep_side):
+def GetLverage(v_win,v_tie,v_los,bet_amt,keep_side):
 
     AllocateList = pd.read_csv(r'./data/cmb_list.csv',index_col=None)
 
@@ -47,3 +47,6 @@ def GetArbitrage(v_win,v_tie,v_los,bet_amt,keep_side):
 GetArbitrage(1.55,2.125,1.875,100,'留胜') # 2.125
 GetArbitrage(1.55,2.125,1.875,100,'留平') # 3.0
 GetArbitrage(1.55,2.125,1.875,100,'留负') # 2.7
+
+
+
