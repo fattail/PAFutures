@@ -59,6 +59,9 @@ GetArbitrageKeep(0.8,2.3,4,100,'留负')
 # --鹿儿岛
 GetArbitrageKeep(1.15,2.25,1.875,10,'留平')
 
+# 布里斯班市-布里斯班狮吼
+GetArbitrageKeep(1.55,2.8,1.375,20,'留平')
+
 4.7*(1+1.15)-8.3-1
 10.11/8.3
 3.6*(1+1.875)-8.3-1
@@ -70,3 +73,40 @@ GetArbitrageKeep(1.15,2.25,1.875,10,'留平')
 1.7*(1+7)-10
 
 x*(1+7)=(4.7+3.6)+x
+
+GetArbitrageKeep(0.3,5,7,10,'留负')
+
+10*1.3 = x*(1+5)
+
+v_a = 0.333
+v_b = 4.75
+bet_amt = 10
+
+def BinaryAllocateKeep(v_a,v_b,bet_amt):
+    aloc_list = pd.DataFrame([[i,100-i] for i in np.arange(101)],columns=['aloc_a','aloc_b'])
+
+    aloc_list['out_a'] = (aloc_list['aloc_a']*bet_amt)/100
+    aloc_list['out_b'] = (aloc_list['aloc_b']*bet_amt)/100
+
+    aloc_list['income_a'] = aloc_list['out_a']*(1+v_a)
+    aloc_list['income_b'] = aloc_list['out_b']*(1+v_b)
+
+    aloc_list['profit_a'] = aloc_list['income_a'] - bet_amt
+    aloc_list['profit_b'] = aloc_list['income_b'] - bet_amt
+
+    return aloc_list.loc[(aloc_list['profit_a']>0)&(aloc_list['profit_b']>0),]
+
+# 川崎前锋-神户胜利船
+BinaryAllocateKeep(0.333,4.75,10)
+
+# FC东京-横滨
+BinaryAllocateKeep(0.533,3.333,10)
+
+# 博太阳神-大阪钢巴
+GetArbitrageKeep(1.375,2.8,1.7,10,'留平')
+
+# 广岛三箭-清水心跳
+BinaryAllocateKeep(0.533,3.333,10)
+
+# 大阪樱花-扎黄冈撒多FC
+BinaryAllocateKeep(0.7,2.9,10)
