@@ -110,3 +110,7 @@ BinaryAllocateKeep(0.533,3.333,10)
 
 # 大阪樱花-扎黄冈撒多FC
 BinaryAllocateKeep(0.7,2.9,10)
+
+# 神户胜利船-FC东京
+BinaryAllocateKeep(1.3,1.875,50)
+

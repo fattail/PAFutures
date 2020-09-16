@@ -182,6 +182,9 @@ GetArbitrage(1.55,1.9,2,10)
 # 山形山神-雷法山口
 GetArbitrage(0.727,2.6,3.75,10)
 
+# 神户胜利船-FC东京
+GetArbitrage(1.375,2.6,1.75,100)
+
 GetArbitrage(0.003,1,15,2.4)
 
 
